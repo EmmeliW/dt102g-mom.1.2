@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Font awsome icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <title>@ViewData["Title"]</title>
+</head>
+    <body>
+        <header>
+            <img class ="logo" src="images/logo.png" alt="spejsad katt">
+            @{
+                var dateTime = DateTime.Now;
+                string date = DateTime.Now.ToString("dd MMMM yyyy");
+            }
+            <p class="date">Dagens datum är: @date</p>           
+        </header>
+        <main>
+            <aside>
+                <nav>
+                    <ul>
+                        <li><a href="/Index">Startsidan</a></li>
+                        <li><a href="/AboutMe">Om</a></li>
+                        <li><a href="/Razor">Razor</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section>
+               @RenderBody() 
+            </section>            
+        </main>
+        <footer>
+            <p>Av Emmeli Wiklund - Du når mig på följande mailadress: <a href="mailto:emwi0802@student.miun.se">emwi0802@student.miun.se</a></p>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+﻿@page
+@model MyApp.Namespace.RazorModel
+@{
+    ViewData["Title"] = "Razor sidan";
+
+    // Get date and time 
+    var dateTime = DateTime.Now;
+    string date = DateTime.Now.ToString("dd MMMM yyyy");
+    string time = DateTime.Now.ToString("hh:mm");
+
+    // Get day of week
+    string day = Convert.ToString(dateTime.DayOfWeek);
+
+    //List with courses
+    List<string> courses = new List<string>();
+
+    courses.Add("DT057G Webbutveckling I");
+    courses.Add("DT084G Introduktion till programmering med JavaScript");
+    courses.Add("DT163G Digital bildbehandling för webb");
+    courses.Add("GD008G Typografi och form för webb");
+    courses.Add("DT003G Databaser");
+    courses.Add("DT093G Webbutveckling II");
+    courses.Add("DT068G Webbanvändbarhet");
+    courses.Add("DT152G Webbdesign för CMS");
+    courses.Add("DT173G Webbutveckling III");
+    courses.Add("IK060G Projektledning");
+    courses.Add("DT162G JavaScript-baserad webbutveckling");
+    courses.Add("DT071G Programmering I C#.net");     
+}
+
+<h1>Razor</h1>
+<h3>Information</h3>
+<p>Dagens datum är: @date</p>
+<p>Klockan är nu: @time</p>
+
+@if(day == "Monday") {
+    <p>Idag är det måndag.</p>
+} else {
+    <p>Idag är det inte måndag.</p>
+}
+
+<h4>Dessa kurser har jag läst:</h4>
+<ul>
+    @foreach(string course in courses)
+    {
+        <li>@course</li>
+    }
+</ul>
